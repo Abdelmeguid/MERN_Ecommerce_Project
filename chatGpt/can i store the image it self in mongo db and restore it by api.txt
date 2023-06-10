@@ -1,0 +1,28 @@
+Yes, it is possible to store images themselves in MongoDB as binary data and retrieve them via an API. MongoDB supports storing binary data, including images, using the `Binary` data type.
+
+To store the image itself in MongoDB, you would need to convert the image data into a binary format, such as `Buffer` in Node.js, before saving it to the database. Here's an example of how you can modify the code to store the image as binary data:
+
+```javascript
+const orderSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: 'User',
+  },
+  orderItems: [
+    {
+      name: { type: String, required: true },
+      qty: { type: Number, required: true },
+      image: { type: Buffer, required: true },
+      price: { type: Number, required: true },
+      id: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Product' },
+    },
+  ],
+});
+```
+
+In this modified code, the `image` field is now defined as `Buffer` type, which allows you to store binary data. When saving an image to the `image` field, you would convert it into a `Buffer` before assigning it to the field.
+
+To retrieve the image via an API, you would query the order document and retrieve the `Buffer` data from the `image` field. Then, you can send the binary data in the API response or convert it to a suitable format (such as Base64) for transmitting over the network.
+
+It's important to note that storing large images directly in the database can have implications for performance and scalability. In some cases, it may be more efficient to store images in a separate storage system (e.g., file system, cloud storage) and store their references (e.g., URLs, file paths) in the database instead. Consider the specific requirements and constraints of your application when deciding how to handle image storage.

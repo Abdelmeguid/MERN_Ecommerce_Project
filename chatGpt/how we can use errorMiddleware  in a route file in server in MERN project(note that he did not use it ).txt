@@ -1,0 +1,57 @@
+Certainly! Here's an example of how you can use the `notFound` and `errorHandler` middleware functions in a route file in a MERN project:
+
+```javascript
+import express from 'express';
+import { notFound, errorHandler } from './middleware.js';
+
+const router = express.Router();
+
+// Sample route
+router.get('/example', (req, res, next) => {
+  // Perform some logic
+  // ...
+
+  // If the requested resource is not found
+  const error = new Error('Requested resource not found');
+  next(error);
+});
+
+// Register the middleware functions
+router.use(notFound);
+router.use(errorHandler);
+
+export default router;
+```
+
+In this example, we have a sample route defined using `express.Router()`. Inside the route, we simulate a case where the requested resource is not found by creating a new `Error` object and passing it to `next(error)`. This triggers the `notFound` middleware.
+
+In your main server file (e.g., `app.js`), you would import and use this route file:
+
+```javascript
+import express from 'express';
+import exampleRoute from './routes/example.js';
+
+const app = express();
+
+// Other middleware and configurations
+// ...
+
+// Register the example route
+app.use('/api/example', exampleRoute);
+
+// Other routes and middleware
+// ...
+
+// Error handling middleware
+app.use(notFound);
+app.use(errorHandler);
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
+```
+
+By including the `exampleRoute` in your main server file, requests to `/api/example` will go through the defined route and trigger the `notFound` middleware if the requested resource is not found. The `errorHandler` middleware is also registered at the end of your main server file to handle any other encountered errors.
+
+This structure allows you to centralize error handling and provide consistent error responses throughout your MERN project.

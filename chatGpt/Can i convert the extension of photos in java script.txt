@@ -1,0 +1,25 @@
+In JavaScript, you can convert the extension of a photo by manipulating the file name or path string. Here's an example of how you can change the extension of a photo using JavaScript:
+
+```javascript
+// Assuming you have the original file name or path stored in a variable called `originalFileName`
+const originalFileName = 'photo.jpg';
+
+// Specify the new extension you want to convert to (e.g., from .jpg to .png)
+const newExtension = '.png';
+
+// Extract the base name of the file without the extension
+const baseName = originalFileName.split('.').slice(0, -1).join('.');
+
+// Create the new file name by combining the base name with the new extension
+const newFileName = `${baseName}${newExtension}`;
+
+console.log(newFileName); // Output: "photo.png"
+```
+
+In this example, the `originalFileName` variable represents the original file name or path of the photo. The `newExtension` variable stores the desired extension you want to convert to, such as `.png`.
+
+By splitting the `originalFileName` string using the dot (`.`) delimiter, we can obtain an array containing the segments of the file name. We remove the last element of the array (the original extension) using `slice(0, -1)`, and then join the remaining segments using an empty string as the separator to form the base name.
+
+Finally, we create the `newFileName` string by combining the base name with the desired extension. The resulting `newFileName` will have the updated extension.
+
+You can use this approach to convert the extension of a photo in JavaScript. Remember to adapt the code based on your specific requirements, such as handling file paths or multiple dots in the file name.
