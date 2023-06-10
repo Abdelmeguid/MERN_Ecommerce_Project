@@ -22,7 +22,8 @@ app.get("/api/config/paypal", (req, res) =>
 );
 //i add below 3 lines BZH
 app.get("/", (req, res) => {
-  res.send("Hello, Express!");
+  // res.send("Hello, Express!");
+  res.redirect("/products");
 });
 
 const port = process.env.PORT || 5000;
