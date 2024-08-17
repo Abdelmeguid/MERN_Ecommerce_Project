@@ -18,9 +18,11 @@ function App() {
   return (
     <ChakraProvider>
       <Router>
+         {/* this mean Navbar will be always in the top of any page  */}
         <Navbar />
         <main>
           <Routes>
+             {/* for example in below LandingScreen we find link related to router move us to /products */}
             <Route path='/' element={<LandingScreen />}></Route>
             <Route path='/products' element={<ProductsScreen />}></Route>
             <Route path='/product/:id' element={<ProductScreen />}></Route>

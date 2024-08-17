@@ -25,6 +25,8 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+//CGPT return await bcrypt.compare(enteredPassword, this.password): The bcrypt.compare function compares the entered password with the hashed password stored in the user document (this.password). 
+//It returns a promise that resolves to a boolean value: true if the entered password matches the stored hashed password, and false otherwise.
 userSchema.methods.matchPasswords = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };

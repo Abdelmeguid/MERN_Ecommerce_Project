@@ -5,7 +5,7 @@ import User from "../models/User.js";
 import { protectRoute, admin } from "../middleware/authMiddleware.js";
 
 const productRoutes = express.Router();
-
+//AMU below function discripe how i can find from the DB
 const getProducts = async (req, res) => {
   const products = await Product.find({});
   res.json(products);
@@ -27,6 +27,7 @@ const createProductReview = asyncHandler(async (req, res) => {
 
   const product = await Product.findById(req.params.id);
 
+//BZH according below line we can find complete object of user contain all his data 
   const user = await User.findById(userId);
 
   //any (ramz by arabic) after the method .reduce or .find related always to ramz before method
@@ -66,6 +67,7 @@ const createProductReview = asyncHandler(async (req, res) => {
 
 //create a product
 const createNewProduct = asyncHandler(async (req, res) => {
+  //below come in the requst
   const {
     brand,
     name,
@@ -168,6 +170,8 @@ const removeProductReview = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.productId);
 
   //below filter is used in remove operation of any thing
+  //BZH filter function run on all elements and return new array only true the condition in the function in the filter method .
+  //filter function use to delete something that can not give true to it is condition.
   const updatedReviews = product.reviews.filter(
     //we can remove .valueOf() according CGPT
     (rev) => rev._id.valueOf() !== req.params.reviewId
@@ -208,3 +212,15 @@ productRoutes
   .put(protectRoute, admin, removeProductReview);
 
 export default productRoutes;
+
+//below code from CGPT to fetch and populate date when order schema have a user schema refrence 
+
+// // Assuming you have the order document fetched from the database
+// const order = await Order.findById(orderId)
+//   .populate('user') // This will populate the 'user' field with the user document
+//   .execPopulate();
+
+// // Now you can access the username and email of the user like this:
+// const username = order.username; // This will be the user's username
+// const email = order.email; // This will be the user's email
+

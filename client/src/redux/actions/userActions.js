@@ -19,7 +19,8 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post('/api/users/login', { email, password }, config);
-    dispatch(userLogin(data));
+     //BZH anf CGPT remove the belwo line ,this put from instructor by mistake it no need .
+    // dispatch(userLogin(data));
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch(

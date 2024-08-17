@@ -1,0 +1,5 @@
+  //$$$ here how we find feedback from server and fill our data in client
+  //steps
+  //1-dispatch action of redux from component
+  //2- update slice by feedback from server
+  //3- from slice we update the component by <td> and map function

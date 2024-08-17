@@ -1,4 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+//CGPT You are correct. It is not wrong to include the loading field in the initialState object. In fact,
+//  it is a good practice to explicitly define all the fields that are part of the state in the initialState object.
+//  This makes the code more readable and helps other developers understand the structure of the state
 
 export const initialState = {
   error: null,

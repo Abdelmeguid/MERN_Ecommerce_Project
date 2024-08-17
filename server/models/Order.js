@@ -7,6 +7,8 @@ const orderSchema = new mongoose.Schema(
       required: true,
       ref: "User",
     },
+    //CGPT Yes, that's correct. In the provided code,
+    // the email field in the orderSchema is related to the email of the user whose ID is represented by the user field.
     username: {
       type: String,
       required: true,
@@ -69,3 +71,6 @@ const orderSchema = new mongoose.Schema(
 
 const Order = mongoose.model("Order", orderSchema);
 export default Order;
+
+
+

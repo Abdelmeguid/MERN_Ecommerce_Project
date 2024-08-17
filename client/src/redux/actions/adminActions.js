@@ -16,13 +16,13 @@ import {
 } from "../slices/products";
 
 //Discuss getAllUsers
-//1-getAllUsers is dispatched this mean it triggered by action by huaman in the browser app
+//1-getAllUsers is dispatched this mean it triggered by action by huaman in the browser app or from useeffect as in this case from UsersTab.jsx
 //2-and getstate function according this dispatch from user is triggered and run
 //3- in this part (user: { userInfo },)...... user (is the slice called user ) from it we get { userInfo }
 //note that slices is the container of our date from it we find data and send it with requstes to server & from it too
 //we update our app in the browser with information and data
 //4- we send http to server by URL 'api/users'
-//5- derver recieve in index.js and send it to specific router called user router
+//5- server recieve in index.js and send it to specific router called user router
 //6- by middelware called authintication the route import it and use it ,the router know that it is admin ,note that the user router
 //have two GET http one of them need admin user this is that we work in it in  below getAllUsers
 //7- if the http requst from getAllUsers  failed update the slice called admin specified  in  (setError ) in admin slice note: it imported in the start of
@@ -35,7 +35,10 @@ import {
 //the result on the app in the browser
 
 //noted that the admin action contained all needed actions by the Admin
+//getAllUsers is dispatched this mean it triggered by action by huaman in the browser app or from useeffect as in this case from UsersTab.jsx
 
+/////etnew discuss for gAllUsers ..the getAllUsers is trigger from UsersTab.jsx ...then find data from slice called user ..then use this info to send to backend 
+///th server if reply with data we will dispatch another slice with the comming data from the backend and if error we dipatch and update another slices with the errors.
 export const getAllUsers = () => async (dispatch, getState) => {
   const {
     //user below is slice called user from it find the data

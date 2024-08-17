@@ -1,12 +1,12 @@
 // connection to our database.
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const connectToDatabase = async () => {
   try {
-    mongoose.set('strictQuery', false);
+    mongoose.set("strictQuery", false);
     const connect = await mongoose.connect(process.env.MONGO_URI, {
       useUnifiedTopology: true,
-      useNewUrlParser: true,
+      // useNewUrlParser: true,
     });
 
     console.log(`MongoDB Connected: ${connect.connection.host}`);

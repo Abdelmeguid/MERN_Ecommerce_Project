@@ -9,6 +9,7 @@ export const setShippingAddressError = (value) => (dispatch) => {
   dispatch(setError(value));
 };
 
+//can we remove the shippingAddress in this code ?
 export const createOrder = (order) => async (dispatch, getState) => {
   const {
     order: { shippingAddress },

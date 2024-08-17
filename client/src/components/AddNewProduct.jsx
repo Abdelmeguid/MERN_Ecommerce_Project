@@ -55,6 +55,9 @@ const AddNewProduct = () => {
       </Td>
       <Td>
         <Text fontSize='sm'>Brand</Text>
+        {/* CGPT The code onChange={(e) => setBrand(e.target.value)} defines a function that will be called when the change event is triggered. The function takes one argument, e, which is an object that contains information about the event.
+         The e.target.value property of the e object contains the new value of the input element. */}
+
         <Input size='sm' value={brand} onChange={(e) => setBrand(e.target.value)} placeholder='Apple or Samsung etc.' />
         <Text fontSize='sm'>Name</Text>
         <Input size='sm' value={name} onChange={(e) => setName(e.target.value)} placeholder='Samsung S30' />

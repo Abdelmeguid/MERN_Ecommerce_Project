@@ -1,0 +1,25 @@
+related below code 
+        products.map((product) => (
+          <WrapItem key={product._id}>
+            <Center w='250px' h='550px'>
+              <ProductCard product={product} />
+            </Center>
+          </WrapItem>
+
+i find below feedback from CGPT
+
+this mean i can do not use ref but i can use any variable i need and send object 
+or any variable to the child component 
+without any problems and do not depend on ref in the future?
+
+Yes, that's correct. In React, you can pass any data, including objects or any other variables, to child components as props without relying on `ref` for communication. Using props is the primary way to pass data from parent components to their child components in React.
+
+When you pass data as props, the child components receive and use that data for rendering, displaying content, and handling interactions. Props allow you to maintain a clear and predictable data flow from parent components to their children, making your components more maintainable and easier to understand.
+
+You can pass different types of data as props, such as primitive values (e.g., strings, numbers, booleans), arrays, objects, functions, and even React elements. This flexibility enables you to create reusable and composable components that can be customized and adapted for different use cases.
+
+Using props for data flow also ensures that your components are decoupled from each other, promoting reusability and better separation of concerns. It allows you to manage the component's behavior and state in the parent component while keeping the child component focused on rendering and displaying the data.
+
+In summary, you should generally avoid using `ref` for data passing and communication between parent and child components. Instead, rely on props to pass data down to child components, and if needed, use state management techniques like React's `useState` and Redux for more complex state handling.
+
+By following this pattern, you'll create more maintainable, reusable, and scalable React components that are easier to reason about and maintain in the long term.

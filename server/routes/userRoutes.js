@@ -8,6 +8,8 @@ import { protectRoute, admin } from "../middleware/authMiddleware.js";
 const userRoutes = express.Router();
 
 //TODO: redefine expiresIn
+//After time in below function the token will expire, and the user will need to log in again to obtain a new token for further access 
+//to the application's protected resources.
 const genToken = (id) => {
   return jwt.sign({ id }, process.env.TOKEN_SECRET, { expiresIn: "60d" });
 };

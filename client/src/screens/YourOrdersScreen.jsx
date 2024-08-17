@@ -22,7 +22,14 @@ import { getUserOrders } from "../redux/actions/userActions";
 import { useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
+ //$$$ here how we find feedback from server and fill our data in client
+  //steps
+  //1-dispatch action of redux from component
+  //2- update slice by feedback from server
+  //3- from slice we update the component by <td> and map function
+
 const YourOrdersScreen = () => {
+
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user);
@@ -104,6 +111,13 @@ const YourOrdersScreen = () => {
       )}
     </>
   ) : (
+    // CGPT 
+    //replace={true}: 
+    //This prop specifies whether the current route should be replaced in the navigation history.
+    //  When set to true, it replaces the current route instead of pushing a new entry to the history.
+    //   This can be useful to prevent the user from going back to the previous protected route after logging in.
+
+    //////below line is important for navigation 
     <Navigate to="/login" replace={true} state={{ from: location }} />
   );
 };

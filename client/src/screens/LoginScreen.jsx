@@ -70,6 +70,7 @@ const LoginScreen = () => {
                 <Heading size={headingBR}>Log in to your account</Heading>
                 <HStack spacing='1' justify='center'>
                   <Text color='muted'>Don't have an account ?</Text>
+                  {/* method to redirect by button  */}
                   <Button as={ReactLink} to='/registration' variant='link' colorScheme='orange'>
                     Sign up
                   </Button>

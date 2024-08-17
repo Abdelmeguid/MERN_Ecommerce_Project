@@ -26,6 +26,7 @@ const PayPalButton = ({ total, onPaymentSuccess, onPaymentError, disabled }) => 
       <PayPalButtons
         disabled={disabled}
         forceReRender={[total(), paypalClient]}
+        // createOrder is not the smae function in redux action .
         createOrder={(data, actions) => {
           return actions.order.create({
             purchase_units: [

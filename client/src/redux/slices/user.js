@@ -15,8 +15,10 @@ export const userSlice = createSlice({
     setLoading: (state) => {
       state.loading = true;
     },
-    userLogin: (state, { payload }) => {
-      state.userInfo = payload;
+    //BZH anf CGPT remove the payload from below function, this put from instructor by mistake it no need .
+    //userLogin: (state, { payload }) => {
+      userLogin: (state) => {
+      //state.userInfo = payload;
       state.error = null;
       state.loading = false;
     },
